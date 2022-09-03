@@ -1,0 +1,5 @@
+require("core.general")
+require("core.autocmd")
+require("core.keymaps")
+require("plugins")
+require("plugins.configs.colortheme")
