@@ -28,8 +28,6 @@ keymap("n", "<C-s>", ":w<CR>", opts)
 keymap("n", "<C-x>", ":q<CR>", opts)
 keymap("n", "<C-\\>", ":BufferLineGroupClose ungrouped<CR>", opts)
 keymap("n", "<C-q>", ":Bdelete<CR>", opts)
--- keymap("n", "<C-\\>", "<ESC><cmd>lua require('core.lazy_load').closeAllBufs()<CR>", opts)
--- keymap("n", "<C-q>", "<ESC><cmd>lua require('core.lazy_load').close_buffer()<CR>", opts)
 
 -- Navigate buffers
 keymap("n", "<S-l>", ":BufferLineCycleNext<CR>", opts)
@@ -64,15 +62,6 @@ keymap("v", ">", ">gv", opts)
 
 -- Formatting
 keymap("n", "<C-f>", ":Format<CR>", opts)
--- keymap("n", "<leader>", ":FormatWrite<CR>", opts)
-
--- Nvim Tree
-keymap("n", "<C-n>", "<cmd> NvimTreeToggle <CR>", opts)
--- keymap("n", "<leader>e", "<cmd> NvimTreeFocus <CR>", opts)
-
--- -- telescope
--- keymap("n", "<leader>f", ": telescope find_files <cr>", opts)
--- keymap("n", "<leader>p", ": telescope file_browser <cr>", opts)
 
 -- Resize with arrows
 keymap("n", "_", ": vertical resize -2<CR>", opts)
@@ -81,12 +70,3 @@ keymap("n", "{", ": resize -2<CR>", opts)
 keymap("n", "}", ": resize +2<CR>", opts)
 
 
--- keymap("n", "<leader>Left", ":vertical resize -2<CR>", opts)
--- keymap("n", "<leader>Right", ":vertical resize +2<CR>", opts)
-
--- Terminal --
--- Better terminal navigation
--- keymap("t", "<C-h>", "<C-\\><C-N><C-w>h", term_opts)
--- keymap("t", "<C-j>", "<C-\\><C-N><C-w>j", term_opts)
--- keymap("t", "<C-k>", "<C-\\><C-N><C-w>k", term_opts)
--- keymap("t", "<C-l>", "<C-\\><C-N><C-w>l", term_opts)

@@ -24,7 +24,7 @@ local configs = {
 		adaptive_size = true,
 		side = "left",
 		width = 25,
-		hide_root_folder = false,
+		hide_root_folder = true,
 		mappings = {
 			list = {
 				{ key = "s", action = "split", mode = "n" },
@@ -39,7 +39,7 @@ local configs = {
 		show_on_dirs = true,
 		debounce_delay = 50,
 		icons = {
-			hint ="",
+			hint = "",
 			info = "",
 			warning = "",
 			error = "",
@@ -60,10 +60,16 @@ local configs = {
 	renderer = {
 		highlight_git = false,
 		highlight_opened_files = "none",
-
 		indent_markers = {
-			enable = false,
-		},
+			enable = true,
+			inline_arrows = true,
+			icons = {
+				corner = "└",
+				edge = "│",
+				item = "│",
+				bottom = "─",
+				none = " ",
+			}, },
 
 		icons = {
 			show = {
@@ -72,17 +78,16 @@ local configs = {
 				folder_arrow = true,
 				git = true,
 			},
-
 			glyphs = {
 				default = "",
 				symlink = "",
 				folder = {
 					default = "",
-					empty = "",
-					empty_open = "",
-					open = "",
+					empty = "",
+					empty_open = "",
+					open = "",
 					symlink = "",
-					symlink_open = "",
+					symlink_open = "",
 					arrow_open = "",
 					arrow_closed = "",
 				},
@@ -99,95 +104,6 @@ local configs = {
 		},
 	},
 }
-
--- local options = {
--- 	sync_root_with_cwd = true,
--- 	update_focused_file = {
--- 		enable = true,
--- 		update_root = true,
--- 	},
--- 	filters = {
--- 		dotfiles = false,
--- 	},
--- 	disable_netrw = true,
--- 	hijack_netrw = true,
--- 	open_on_setup = false,
--- 	-- ignore_ft_on_setup = { "alpha" },
--- 	hijack_cursor = true,
--- 	hijack_unnamed_buffer_when_opening = false,
--- 	update_cwd = true,
--- 	view = {
--- 		adaptive_size = true,
--- 		side = "left",
--- 		width = 25,
--- 		hide_root_folder = false,
--- 		mappings = {
--- 			list = {
--- 				{ key = "s", action = "split", mode = "n" },
--- 				{ key = "i", action = "vsplit", mode = "n" },
--- 				{ key = "O", action = "system_open", mode = "n" },
--- 			},
--- 		},
--- 	},
--- 	git = {
--- 		enable = true,
--- 		ignore = true,
--- 	},
--- 	filesystem_watchers = {
--- 		enable = false,
--- 	},
--- 	actions = {
--- 		open_file = {
--- 			resize_window = true,
--- 		},
--- 	},
--- 	renderer = {
--- 		highlight_git = true,
--- 		highlight_opened_files = "none",
--- 		indent_markers = {
--- 			enable = true,
--- 			inline_arrows = true,
--- 			icons = {
--- 				corner = "└",
--- 				edge = "│",
--- 				item = "│",
--- 				none = " ",
--- 			},
--- 		},
--- 		icons = {
--- 			show = {
--- 				file = true,
--- 				folder = true,
--- 				folder_arrow = true,
--- 				git = true,
--- 			},
-
--- 			glyphs = {
--- 				default = "",
--- 				symlink = "",
--- 				folder = {
--- 					default = "",
--- 					empty = "",
--- 					empty_open = "",
--- 					open = "",
--- 					symlink = "",
--- 					symlink_open = "",
--- 					arrow_open = "",
--- 					arrow_closed = "",
--- 				},
--- 				git = {
--- 					unstaged = "✗",
--- 					staged = "✓",
--- 					unmerged = "",
--- 					renamed = "➜",
--- 					untracked = "★",
--- 					deleted = "",
--- 					ignored = "◌",
--- 				},
--- 			},
--- 		},
--- 	},
--- }
 
 vim.g.nvimtree_side = configs.view.side
 
