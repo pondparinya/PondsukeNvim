@@ -63,7 +63,7 @@ rm -rf ~/.cache/nvim
 ```
 **Clone the repository**
 ```
-git clone --depth 1 https://github.com/pondparinya/PondsukeNvim.git ~/PondsukeNvim  && ln -vsfn ~/Neovim-pondsuke   ~/.config/nvim
+git clone --depth 1 https://github.com/pondparinya/PondsukeNvim.git ~/PondsukeNvim  && ln -vsfn ~/PondsukeNvim   ~/.config/nvim
 
 ```
 **Loading plugins**
