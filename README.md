@@ -75,7 +75,7 @@ Then you close and new open nvim
 - ### Options Install 
 If you use **`MacOS`** and have **`Homebrew`**. You can do this 
 ```
-source ~/.config/nvim/install.sh 
+source ~/.config/nvim/brew_install.sh
 ```
 
 # Credits

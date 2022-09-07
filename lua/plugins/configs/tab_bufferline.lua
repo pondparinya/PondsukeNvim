@@ -14,7 +14,7 @@ M.setup = function()
 				{ filetype = "Outline", text = "", padding = 1 },
 			},
 			buffer_close_icon = "",
-			modified_icon = "",
+			modified_icon = "●",
 			close_icon = "",
 			max_name_length = 14,
 			max_prefix_length = 13,

@@ -44,7 +44,6 @@ return packer.startup(function(use)
 	use({ "wbthomason/packer.nvim" })
 
 	-- Dashboard
-	-- STATUS / DONE
 	use({
 		"goolord/alpha-nvim",
 		config = function()
@@ -53,7 +52,6 @@ return packer.startup(function(use)
 	})
 
 	-- Which-key
-	-- STATUS / DONE
 	use({
 		"folke/which-key.nvim",
 		config = function()
@@ -62,7 +60,6 @@ return packer.startup(function(use)
 	})
 
 	-- Terminal
-	-- STATUS / DONE
 	use({
 		"akinsho/toggleterm.nvim",
 		cmd = "ToggleTerm",
@@ -73,7 +70,6 @@ return packer.startup(function(use)
 	})
 
 	-- Autoparis
-	-- STATUS / DONE
 	use({
 		"windwp/nvim-autopairs",
 		event = "InsertEnter",
@@ -83,7 +79,6 @@ return packer.startup(function(use)
 	})
 
 	-- Colorizer
-	-- STATUS / DONE
 	use({
 		"norcalli/nvim-colorizer.lua",
 		event = { "BufRead", "BufNewFile" },
@@ -92,11 +87,9 @@ return packer.startup(function(use)
 		end,
 	})
 	-- Auto Close Tag
-	-- STATUS / DONE
 	use({ "windwp/nvim-ts-autotag", after = "nvim-treesitter" })
 
 	-- Telescope
-	-- STATUS / PENDING
 	use({
 		"nvim-telescope/telescope.nvim",
 		requires = { "nvim-telescope/telescope-file-browser.nvim" },
@@ -107,12 +100,10 @@ return packer.startup(function(use)
 	use({ "nvim-lua/plenary.nvim", module = "plenary" })
 
 	-- Commentary
-	-- STATUS / DONE
 
 	use({ "tpope/vim-commentary" })
 
 	-- Nvim-tree
-	-- STATUS / DONE
 	use({
 		"kyazdani42/nvim-tree.lua",
 		requires = {
@@ -124,12 +115,10 @@ return packer.startup(function(use)
 	})
 
 	-- Theme colors
-	-- STATUS / DONE
 	use({ "navarasu/onedark.nvim" })
 	use({ "Mofiqul/dracula.nvim" })
 
 	-- Treesitter
-	-- STATUS / DONE
 	use({
 		"nvim-treesitter/nvim-treesitter",
 		run = ":TSUpdate",
@@ -150,7 +139,6 @@ return packer.startup(function(use)
 	})
 
 	-- Lsp stuff
-	-- STATUS / DONE
 	use({
 		"williamboman/nvim-lsp-installer",
 		cmd = require("core.lazy_load").lsp_cmds,
@@ -168,7 +156,6 @@ return packer.startup(function(use)
 		end,
 	})
 
-	-- STATUS / DONE (but can enhancement)
 	-- Cmp
 	use({ "rafamadriz/friendly-snippets", module = "cmp_nvim_lsp", event = "InsertEnter" })
 
@@ -200,7 +187,6 @@ return packer.startup(function(use)
 	use({ "hrsh7th/cmp-path", after = "cmp-buffer" })
 
 	-- Status Line
-	-- STATUS / DONE
 	use({
 		"nvim-lualine/lualine.nvim",
 		config = function()
@@ -209,7 +195,6 @@ return packer.startup(function(use)
 	})
 
 	-- Tab Line
-	-- STATUS / DONE
 	use({
 		"akinsho/bufferline.nvim",
 		-- tag = "v2.*",
@@ -220,7 +205,6 @@ return packer.startup(function(use)
 	use({ "moll/vim-bbye" })
 
 	-- Indent-blankline
-	-- STATUS / DONE
 	use({
 		"lukas-reineke/indent-blankline.nvim",
 		event = "BufRead",
@@ -230,7 +214,6 @@ return packer.startup(function(use)
 	})
 
 	-- Gitsign
-	-- STATUS / DONE
 	use({
 		"lewis6991/gitsigns.nvim",
 		config = function()
@@ -239,7 +222,6 @@ return packer.startup(function(use)
 	})
 
 	-- Formatting
-	-- STATUS / DONE
 	use({
 		"mhartington/formatter.nvim",
 		config = function()
