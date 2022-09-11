@@ -26,7 +26,7 @@ keymap("n", "<C-l>", "<C-w>l", opts)
 -- Tab buffers
 keymap("n", "<C-s>", ":w<CR>", opts)
 keymap("n", "q", ":q<CR>", opts)
-keymap("n", "Q", ":!q<CR>", opts)
+keymap("n", "Q", ":q!<CR>", opts)
 keymap("n", "<C-\\>", ":BufferLineGroupClose ungrouped<CR>", opts)
 keymap("n", "<C-q>", ":Bdelete<CR>", opts)
 
