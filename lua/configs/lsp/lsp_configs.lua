@@ -6,8 +6,8 @@ if not status_ok then
 end
 
 
-require("plugins.configs.lsp.lsp_ui").setup()
-require("plugins.configs.lsp.lsp_install")
+require("configs.lsp.lsp_ui").setup()
+require("configs.lsp.lsp_install")
 
 local lsp_keymaps = function(bufnr)
 	local opts = { noremap = true, silent = true }
@@ -44,7 +44,7 @@ M.on_attach = function (client, bufnr)
 
   lsp_keymaps(bufnr)
   if client.server_capabilities.signatureHelpProvider then
-    require("plugins.configs.lsp.lsp_signature").setup(client)
+    require("configs.lsp.lsp_signature").setup(client)
   end
 end
 

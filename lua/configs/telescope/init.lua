@@ -3,9 +3,9 @@ if not status_ok then
 	return
 end
 
-local mappings = require("plugins.configs.telescope.mappings")
-local picker = require("plugins.configs.telescope.picker")
-local extension = require("plugins.configs.telescope.extension")
+local mappings = require("configs.telescope.mappings")
+local picker = require("configs.telescope.picker")
+local extension = require("configs.telescope.extension")
 
 local options = {
 	extensions_list = {

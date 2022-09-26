@@ -41,18 +41,6 @@ pondnvim.initial_packer = function()
 		return false
 	end
 	return true
-	-- -- call packer again
-	-- have_packer, _ = pcall(require, "packer")
-	-- -- if packer didn't load, print error
-	-- if not have_packer then
-	-- 	vim.api.nvim_err_writeln("Failed to load packer at:" .. pondnvim.packer_path)
-	-- 	return false
-	-- end
-
-	-- -- If you automation sync & update every time then open editor
-	-- if have_packer then
-	-- 	return true
-	-- end
 end
 
 return pondnvim
