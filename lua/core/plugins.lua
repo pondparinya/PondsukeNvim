@@ -59,6 +59,15 @@ return packer.startup(function(use)
 		end,
 	})
 
+	-- Notification
+	use({
+		"rcarriga/nvim-notify",
+		event = "VimEnter",
+		config = function()
+			require("configs.notify")
+		end,
+	})
+
 	-- Colorizer
 	use({
 		"norcalli/nvim-colorizer.lua",
