@@ -87,6 +87,7 @@ return packer.startup(function(use)
 	-- Nvim-tree
 	use({
 		"kyazdani42/nvim-tree.lua",
+    commit = "b01e7beaa6f0dbbf5df775cf4ecc829a23f0be54",
 		requires = {
 			"kyazdani42/nvim-web-devicons", -- icons
 		},
@@ -161,7 +162,7 @@ return packer.startup(function(use)
 
 	use({ "hrsh7th/cmp-nvim-lua", after = "cmp_luasnip" })
 
-	use({ "hrsh7th/cmp-nvim-lsp", after = "cmp-nvim-lua" })
+	use({ "hrsh7th/cmp-nvim-lsp", commit = "affe808a5c56b71630f17aa7c38e15c59fd648a8", after = "cmp-nvim-lua" })
 
 	use({ "hrsh7th/cmp-buffer", after = "cmp-nvim-lsp" })
 
@@ -210,6 +211,9 @@ return packer.startup(function(use)
 		end,
 	})
 
+	use({
+		"prettier/vim-prettier",
+	})
 	-- Automatically set up your configuration after cloning packer.nvim
 	-- Put this at the end after all plugins
 	if not ensure_packer then
