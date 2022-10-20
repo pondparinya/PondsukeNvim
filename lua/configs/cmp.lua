@@ -1,4 +1,3 @@
-local M = {}
 local cmp_status_ok, cmp = pcall(require, "cmp")
 if not cmp_status_ok then
 	return
@@ -144,15 +143,11 @@ cmp.setup.cmdline({ "/", "?" }, {
 })
 
 -- Use cmdline & path source for ':' (if you enabled `native_menu`, this won't work anymore).
--- cmp.setup.cmdline(":", {
--- 	mapping = cmp.mapping.preset.cmdline(),
--- 	sources = cmp.config.sources({
--- 		{ name = "path" },
--- 	}, {
--- 		{ name = "cmdline" },
--- 	}),
--- })
-M.setup = function()
-	-- cmp.setup({})
-end
-return M
+cmp.setup.cmdline(":", {
+	mapping = cmp.mapping.preset.cmdline(),
+	sources = cmp.config.sources({
+		{ name = "path" },
+	}, {
+		{ name = "cmdline" },
+	}),
+})

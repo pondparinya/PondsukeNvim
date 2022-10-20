@@ -1,7 +1,7 @@
 local M = {}
-local configs = require("config.lsp.config")
-local lsp_keymaps = require("config.lsp.keymaps")
-local utils = require("config.lsp.uitls")
+local configs = require("configs.lsp.config")
+local utils = require("configs.lsp.utils")
+-- local keymap = vim.keymap.set
 
 M.on_attach = function(client, bufnr)
 	local caps = client.server_capabilities
@@ -19,7 +19,12 @@ M.on_attach = function(client, bufnr)
 	end
 
 	-- Setup Keymapping LSP & Whick-key
-	lsp_keymaps.setup(client, bufnr)
+	local opts = { noremap = true, silent = true }
+	vim.api.nvim_buf_set_keymap(bufnr, "n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>", opts)
+
+	-- -- Key mappings
+
+	require("configs.lsp.keymaps").setup(client, bufnr)
 
 	-- Setup highlighting
 	if pondnvim.lsp.document_highlight then

@@ -1,7 +1,14 @@
 local M = {}
 
-local whichkey = require("which-key")
-local legendary = require("legendary")
+local whichkey_ok, whichkey = pcall(require, "which-key")
+if not whichkey_ok then
+	return
+end
+
+local legendary_ok, legendary = pcall(require, "legendary")
+if not legendary_ok then
+	return
+end
 
 local keymap = vim.keymap.set
 
@@ -9,7 +16,7 @@ local function keymappings(client, bufnr)
 	local opts = { noremap = true, silent = true }
 
 	-- Key mappings
-	keymap("n", "K", vim.lsp.buf.hover { buffer = bufnr })
+	keymap("n", "K", vim.lsp.buf.hover, { buffer = bufnr })
 
 	keymap("n", "[d", "<cmd>lua vim.diagnostic.goto_prev()<CR>", opts)
 	keymap("n", "]d", "<cmd>lua vim.diagnostic.goto_next()<CR>", opts)

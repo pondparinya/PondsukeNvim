@@ -1,8 +1,4 @@
 local tbl = require("utils.table")
-local mason_lspconfig_ok, mason_lspconfig = pcall(require, "mason-lspconfig")
-if not mason_lspconfig_ok then
-	return
-end
 local M = {}
 
 M.codelens_refresh = function(client, bufnr)
@@ -54,23 +50,7 @@ M.highlight = function(client, bufnr)
 	end
 end
 
--- mason get list installed servers
-M.get_servers_installed = function()
-	local _, list_servers = pcall(function()
-		return mason_lspconfig.get_installed_servers()
-	end)
-	return list_servers or {}
-end
-
--- @Params list servers
--- @Return []string
-M.get_available_servers = function(filter)
-	local _, support_servers = pcall(function()
-		return mason_lspconfig.get_available_servers(filter)
-	end)
-	return support_servers or {}
-end
-
+-- not use
 M.is_client_active = function(name)
 	local clients = vim.lsp.get_active_clients()
 	return tbl.find_first(clients, function(client)
@@ -79,16 +59,17 @@ M.is_client_active = function(name)
 	end)
 end
 
-M.resolve_config = function(servers, opts)
-	for _, server_name in pairs(servers) do
-		local has_custom_opts, server_custom_opts = pcall(require, "configs.lsp.custom-configs." .. server_name)
-		if has_custom_opts then
-			opts = vim.tbl_deep_extend("force", opts, server_custom_opts)
-		end
+-- not use
+M.resolve_config = function(server_name, opts)
+	local has_custom_opts, server_custom_opts = pcall(require, "configs.lsp.custom-configs." .. server_name)
+	if has_custom_opts then
+		opts = vim.tbl_deep_extend("force", opts, server_custom_opts)
+		return opts
 	end
 	return opts
 end
 
+-- not use
 M.launch_server = function(server_name, config)
 	pcall(function()
 		require("lspconfig")[server_name].setup(config)

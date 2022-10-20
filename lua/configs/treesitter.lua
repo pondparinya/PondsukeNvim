@@ -13,7 +13,7 @@ function M.setup()
 		-- 	enable = true, -- false will disable the whole extension
 		-- 	use_languagetree = true,
 		-- },
-		autopairs = { enable = true },
+		autopairs = { enable = false },
 		autotag = { enable = true },
 		incremental_selection = { enable = true },
 		-- indent = { enable = false },

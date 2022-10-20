@@ -46,20 +46,41 @@ return packer.startup(function(use)
 			require("configs.alpha")
 		end,
 	})
+	--[Which-key]--
+	use({
+		"folke/which-key.nvim",
+		event = "VimEnter",
+		config = function()
+			require("configs.whichkey")
+		end,
+	})
 
-	-- [Package Manager]
-	-- use({
-	-- 	"williamboman/mason.nvim",
-	-- 	config = function()
-	-- 		require("configs.mason").setup()
-	-- 	end,
-	-- })
-	-- use({ "neovim/nvim-lspconfig" })
+	-- [Icons]
 	use({
 		"onsails/lspkind-nvim",
 		module = "lspkind",
 		config = function()
 			require("configs.lspkind")
+		end,
+	})
+
+	-- [Package Manager]
+	use({
+		"neovim/nvim-lspconfig",
+		config = function()
+			require("configs.lsp.handler").setup()
+		end,
+	})
+	use({
+		"williamboman/mason.nvim",
+		config = function()
+			require("configs.lsp.mason")
+		end,
+	})
+	use({
+		"williamboman/mason-lspconfig.nvim",
+		config = function()
+			require("configs.lsp.installer")
 		end,
 	})
 
@@ -80,7 +101,7 @@ return packer.startup(function(use)
 		event = "InsertEnter",
 		-- event = "BufEnter",
 		config = function()
-			require("configs.cmp").setup()
+			require("configs.cmp")
 		end,
 	})
 	use({ "hrsh7th/cmp-nvim-lsp", after = "nvim-cmp" })
@@ -99,12 +120,13 @@ return packer.startup(function(use)
 	-------------------[Legendary]----------------
 	use({
 		"mrjones2014/legendary.nvim",
+		opt = true,
 		keys = { [[<C-p>]] },
 		-- wants = { "dressing.nvim" },
 		module = { "legendary" },
 		cmd = { "Legendary" },
 		config = function()
-			-- require("configs.legendary").setup()
+			require("configs.legendary").setup()
 		end,
 		-- requires = { "stevearc/dressing.nvim" },
 	})
@@ -129,14 +151,6 @@ return packer.startup(function(use)
 		end,
 		module = { "aerial" },
 		cmd = { "AerialToggle" },
-	})
-
-	--[Which-key]--
-	use({
-		"folke/which-key.nvim",
-		config = function()
-			require("configs.whichkey")
-		end,
 	})
 
 	-- Terminal

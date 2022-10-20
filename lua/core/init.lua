@@ -8,25 +8,6 @@ pondnvim.packer_path = fn.stdpath("data") .. "/site/pack/packer/start/packer.nvi
 pondnvim.compile_path = fn.stdpath("data") .. "/packer_compiled.lua"
 -- pondnvim.default_compile_path = fn.stdpath("data") .. "/packer_compiled.lua"
 
----> Prepare packer config
-pondnvim.packer_config = {
-	display = {
-		open_fn = function()
-			return require("packer.util").float({ border = "rounded" })
-		end,
-	},
-	compile_path = pondnvim.compile_path,
-	git = {
-		clone_timeout = 300,
-		subcommands = {
-			update = "pull --rebase",
-		},
-	},
-	git = { clone_timeout = 6000 },
-	auto_clean = true,
-	compile_on_sync = true,
-}
-
 ---> Check Packer if not install it auto loads
 pondnvim.initial_packer = function()
 	-- try loading packer
@@ -54,9 +35,9 @@ end
 pondnvim.lsp = {
 	code_lens_refresh = true,
 	document_highlight = false,
-	nvim_navic = true,
+	nvim_navic = false,
 	aerial = false,
-	semantic_highlighting = true,
+	semantic_highlighting = false,
 	tag_func = true,
 	omni_func = true,
 	format_expr = true,
