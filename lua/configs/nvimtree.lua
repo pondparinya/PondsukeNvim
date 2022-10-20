@@ -69,7 +69,8 @@ local configs = {
 				item = "│",
 				bottom = "─",
 				none = " ",
-			}, },
+			},
+		},
 
 		icons = {
 			show = {

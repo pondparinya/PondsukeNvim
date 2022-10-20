@@ -5,6 +5,7 @@ local fn = vim.fn
 
 ---> Set local packer path
 pondnvim.packer_path = fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
+pondnvim.compile_path = fn.stdpath("data") .. "/packer_compiled.lua"
 -- pondnvim.default_compile_path = fn.stdpath("data") .. "/packer_compiled.lua"
 
 ---> Prepare packer config
@@ -14,7 +15,13 @@ pondnvim.packer_config = {
 			return require("packer.util").float({ border = "rounded" })
 		end,
 	},
-	-- compile_path = pondnvim.default_compile_path,
+	compile_path = pondnvim.compile_path,
+	git = {
+		clone_timeout = 300,
+		subcommands = {
+			update = "pull --rebase",
+		},
+	},
 	git = { clone_timeout = 6000 },
 	auto_clean = true,
 	compile_on_sync = true,
@@ -42,5 +49,17 @@ pondnvim.initial_packer = function()
 	end
 	return true
 end
+
+---> LSP configs on/off
+pondnvim.lsp = {
+	code_lens_refresh = true,
+	document_highlight = false,
+	nvim_navic = true,
+	aerial = false,
+	semantic_highlighting = true,
+	tag_func = true,
+	omni_func = true,
+	format_expr = true,
+}
 
 return pondnvim

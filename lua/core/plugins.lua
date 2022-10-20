@@ -8,23 +8,38 @@ if not status_ok then
 end
 
 -- Have packer use a popup window
+-- packer.init(pondnvim.packer_config)
 packer.init({
+	-- compile_path = pondnvim.compile_path,
 	display = {
 		open_fn = function()
 			return require("packer.util").float({ border = "rounded" })
 		end,
 	},
+	profile = {
+		enable = true,
+		threshold = 1,
+	},
+	git = {
+		clone_timeout = 300,
+		subcommands = {
+			update = "pull --rebase",
+		},
+	},
+	auto_clean = true,
+	compile_on_sync = true,
 })
 
 -- Install your plugins here
 return packer.startup(function(use)
-	-- Plugins Manager
+	-- [Plugins Manager]
 	use({ "wbthomason/packer.nvim" })
 
-	-- Optimizer
+	-- [Optimizer]
 	use("lewis6991/impatient.nvim")
+	use({ "nvim-lua/plenary.nvim", module = "plenary" })
 
-	-- Dashboard
+	-- [Dashboard]
 	use({
 		"goolord/alpha-nvim",
 		config = function()
@@ -32,7 +47,91 @@ return packer.startup(function(use)
 		end,
 	})
 
-	-- Which-key
+	-- [Package Manager]
+	-- use({
+	-- 	"williamboman/mason.nvim",
+	-- 	config = function()
+	-- 		require("configs.mason").setup()
+	-- 	end,
+	-- })
+	-- use({ "neovim/nvim-lspconfig" })
+	use({
+		"onsails/lspkind-nvim",
+		module = "lspkind",
+		config = function()
+			require("configs.lspkind")
+		end,
+	})
+
+	-- [Snippets]
+	use({ "rafamadriz/friendly-snippets", opt = true })
+	use({
+		"L3MON4D3/LuaSnip",
+		module = "luasnip",
+		wants = "friendly-snippets",
+		config = function()
+			require("configs.snip").setup()
+		end,
+	})
+
+	-- [CMP]
+	use({
+		"hrsh7th/nvim-cmp",
+		event = "InsertEnter",
+		-- event = "BufEnter",
+		config = function()
+			require("configs.cmp").setup()
+		end,
+	})
+	use({ "hrsh7th/cmp-nvim-lsp", after = "nvim-cmp" })
+	use({ "hrsh7th/cmp-emoji", after = "nvim-cmp" })
+	use({ "hrsh7th/cmp-buffer", after = "nvim-cmp" })
+	use({ "hrsh7th/cmp-path", after = "nvim-cmp" })
+	use({ "hrsh7th/cmp-cmdline", after = "nvim-cmp" })
+
+	use({ "saadparwaiz1/cmp_luasnip", after = "nvim-cmp" })
+	use({ "hrsh7th/cmp-nvim-lua", after = "nvim-cmp" })
+	use({ "lukas-reineke/cmp-rg", after = "nvim-cmp" })
+	use({ "ray-x/cmp-treesitter", after = "nvim-cmp" })
+
+	----------------------------------------------
+
+	-------------------[Legendary]----------------
+	use({
+		"mrjones2014/legendary.nvim",
+		keys = { [[<C-p>]] },
+		-- wants = { "dressing.nvim" },
+		module = { "legendary" },
+		cmd = { "Legendary" },
+		config = function()
+			-- require("configs.legendary").setup()
+		end,
+		-- requires = { "stevearc/dressing.nvim" },
+	})
+	----------------------------------------------
+
+	-- Code documentation
+	-- use({
+	-- 	"danymat/neogen",
+	-- 	config = function()
+	-- 		require("config.neogen").setup()
+	-- 	end,
+	-- 	cmd = { "Neogen" },
+	-- 	module = "neogen",
+	-- 	disable = false,
+	-- })
+
+	--[Aerial]--
+	use({
+		"stevearc/aerial.nvim",
+		config = function()
+			require("aerial").setup()
+		end,
+		module = { "aerial" },
+		cmd = { "AerialToggle" },
+	})
+
+	--[Which-key]--
 	use({
 		"folke/which-key.nvim",
 		config = function()
@@ -55,7 +154,7 @@ return packer.startup(function(use)
 		"windwp/nvim-autopairs",
 		event = "InsertEnter",
 		config = function()
-			require("configs.autopairs")
+			require("configs.autopairs").setup()
 		end,
 	})
 
@@ -64,7 +163,7 @@ return packer.startup(function(use)
 		"rcarriga/nvim-notify",
 		event = "VimEnter",
 		config = function()
-			require("configs.notify")
+			-- require("configs.notify")
 		end,
 	})
 
@@ -87,7 +186,6 @@ return packer.startup(function(use)
 			require("configs.telescope.init")
 		end,
 	})
-	use({ "nvim-lua/plenary.nvim", module = "plenary" })
 
 	-- Commentary
 
@@ -96,7 +194,6 @@ return packer.startup(function(use)
 	-- Nvim-tree
 	use({
 		"kyazdani42/nvim-tree.lua",
-    commit = "b01e7beaa6f0dbbf5df775cf4ecc829a23f0be54",
 		requires = {
 			"kyazdani42/nvim-web-devicons", -- icons
 		},
@@ -128,54 +225,6 @@ return packer.startup(function(use)
 			require("configs.treesitter").setup()
 		end,
 	})
-
-	-- Lsp stuff
-	use({
-		"williamboman/nvim-lsp-installer",
-		cmd = require("core.lazy_load").lsp_cmds,
-		setup = function()
-			require("core.lazy_load").on_file_open("nvim-lsp-installer")
-		end,
-	})
-
-	use({
-		"neovim/nvim-lspconfig",
-		after = "nvim-lsp-installer",
-		module = "lspconfig",
-		config = function()
-			require("configs.lsp.lsp_configs")
-		end,
-	})
-
-	-- Cmp
-	use({ "rafamadriz/friendly-snippets", module = "cmp_nvim_lsp", event = "InsertEnter" })
-
-	use({
-		"hrsh7th/nvim-cmp",
-		after = "friendly-snippets",
-		config = function()
-			require("configs.cmp").cmp_setup()
-		end,
-	})
-
-	use({
-		"L3MON4D3/LuaSnip",
-		wants = "friendly-snippets",
-		after = "nvim-cmp",
-		config = function()
-			require("configs.cmp").luasnip_setup()
-		end,
-	})
-
-	use({ "saadparwaiz1/cmp_luasnip", after = "LuaSnip" })
-
-	use({ "hrsh7th/cmp-nvim-lua", after = "cmp_luasnip" })
-
-	use({ "hrsh7th/cmp-nvim-lsp", commit = "affe808a5c56b71630f17aa7c38e15c59fd648a8", after = "cmp-nvim-lua" })
-
-	use({ "hrsh7th/cmp-buffer", after = "cmp-nvim-lsp" })
-
-	use({ "hrsh7th/cmp-path", after = "cmp-buffer" })
 
 	-- Status Line
 	use({
@@ -220,9 +269,6 @@ return packer.startup(function(use)
 		end,
 	})
 
-	use({
-		"prettier/vim-prettier",
-	})
 	-- Automatically set up your configuration after cloning packer.nvim
 	-- Put this at the end after all plugins
 	if not ensure_packer then
