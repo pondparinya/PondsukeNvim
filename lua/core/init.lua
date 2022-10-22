@@ -5,8 +5,6 @@ local fn = vim.fn
 
 ---> Set local packer path
 pondnvim.packer_path = fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
-pondnvim.compile_path = fn.stdpath("data") .. "/packer_compiled.lua"
--- pondnvim.default_compile_path = fn.stdpath("data") .. "/packer_compiled.lua"
 
 ---> Check Packer if not install it auto loads
 pondnvim.initial_packer = function()
@@ -34,7 +32,7 @@ end
 ---> LSP configs on/off
 pondnvim.lsp = {
 	code_lens_refresh = true,
-	document_highlight = false,
+	document_highlight = true,
 	nvim_navic = false,
 	aerial = false,
 	semantic_highlighting = false,
