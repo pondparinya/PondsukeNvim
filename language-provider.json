@@ -1,0 +1,17 @@
+[
+	{
+		"language": "GOLANG",
+		"enable": true,
+		"servers": ["gopls"]
+	},
+	{
+		"language": "LUA",
+		"enable": true,
+		"servers": ["sumneko_lua"]
+	},
+	{
+		"language": "JSON",
+		"enable": true,
+		"servers": ["jsonls"]
+	}
+]

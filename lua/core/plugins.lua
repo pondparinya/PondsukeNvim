@@ -83,6 +83,7 @@ return packer.startup(function(use)
 			require("configs.lsp.installer")
 		end,
 	})
+	use("b0o/schemastore.nvim")
 
 	-- [Snippets]
 	use({ "rafamadriz/friendly-snippets", opt = true })

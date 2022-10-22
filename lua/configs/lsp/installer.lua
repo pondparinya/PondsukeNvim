@@ -9,7 +9,7 @@ end
 
 local handlers = require("configs.lsp.handler")
 
-local servers = { "sumneko_lua" }
+local servers = require("configs.lsp.servers")
 
 mason_lspconfig.setup({
 	ensure_installed = servers,
