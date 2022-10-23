@@ -49,6 +49,7 @@ return packer.startup(function(use)
 	--[Which-key]--
 	use({
 		"folke/which-key.nvim",
+		commit = "6885b669523ff4238de99a7c653d47b081b5506d",
 		event = "VimEnter",
 		config = function()
 			require("configs.whichkey")
@@ -80,10 +81,11 @@ return packer.startup(function(use)
 	use({
 		"williamboman/mason-lspconfig.nvim",
 		config = function()
-			require("configs.lsp.installer")
+			require("configs.lsp").setup()
 		end,
 	})
-	use("b0o/schemastore.nvim")
+	use({ "b0o/schemastore.nvim" })
+	use({ "jose-elias-alvarez/null-ls.nvim" })
 
 	-- [Snippets]
 	use({ "rafamadriz/friendly-snippets", opt = true })

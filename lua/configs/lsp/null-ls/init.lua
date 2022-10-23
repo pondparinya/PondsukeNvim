@@ -4,7 +4,7 @@ if not null_ok then
 	return
 end
 local nls_utils = require("null-ls.utils")
-local handlers = require("config.lsp.handler")
+local handlers = require("configs.lsp.handler")
 
 local b = null.builtins
 

@@ -19,10 +19,6 @@ M.on_attach = function(client, bufnr)
 	end
 
 	-- Setup Keymapping LSP & Whick-key
-	-- local opts = { noremap = true, silent = true }
-	-- vim.api.nvim_buf_set_keymap(bufnr, "n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>", opts)
-
-	-- Key mappings
 	require("configs.lsp.keymaps").setup(client, bufnr)
 
 	-- Setup highlighting
