@@ -5,10 +5,10 @@ if not whichkey_ok then
 	return
 end
 
-local legendary_ok, legendary = pcall(require, "legendary")
-if not legendary_ok then
-	return
-end
+-- local legendary_ok, legendary = pcall(require, "legendary")
+-- if not legendary_ok then
+-- 	return
+-- end
 
 local keymap = vim.keymap.set
 
@@ -63,15 +63,15 @@ local function keymappings(client, bufnr)
 
 	local o = { buffer = bufnr, prefix = "<leader>" }
 	whichkey.register(keymap_l, o)
-	legendary.bind_whichkey(keymap_l, o, false)
+	-- legendary.bind_whichkey(keymap_l, o, false)
 
 	o = { mode = "v", buffer = bufnr, prefix = "<leader>" }
 	whichkey.register(keymap_v_l, o)
-	legendary.bind_whichkey(keymap_v_l, o, false)
+	-- legendary.bind_whichkey(keymap_v_l, o, false)
 
 	o = { buffer = bufnr, prefix = "g" }
 	whichkey.register(keymap_g, o)
-	legendary.bind_whichkey(keymap_g, o, false)
+	-- legendary.bind_whichkey(keymap_g, o, false)
 end
 
 function M.setup(client, bufnr)

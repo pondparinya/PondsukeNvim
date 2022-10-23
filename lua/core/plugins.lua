@@ -49,7 +49,7 @@ return packer.startup(function(use)
 	--[Which-key]--
 	use({
 		"folke/which-key.nvim",
-		commit = "6885b669523ff4238de99a7c653d47b081b5506d",
+		-- commit = "6885b669523ff4238de99a7c653d47b081b5506d",
 		event = "VimEnter",
 		config = function()
 			require("configs.whichkey")
@@ -118,21 +118,6 @@ return packer.startup(function(use)
 	use({ "lukas-reineke/cmp-rg", after = "nvim-cmp" })
 	use({ "ray-x/cmp-treesitter", after = "nvim-cmp" })
 
-	----------------------------------------------
-
-	-------------------[Legendary]----------------
-	use({
-		"mrjones2014/legendary.nvim",
-		opt = true,
-		keys = { [[<C-p>]] },
-		-- wants = { "dressing.nvim" },
-		module = { "legendary" },
-		cmd = { "Legendary" },
-		config = function()
-			require("configs.legendary").setup()
-		end,
-		-- requires = { "stevearc/dressing.nvim" },
-	})
 	----------------------------------------------
 
 	-- Code documentation
