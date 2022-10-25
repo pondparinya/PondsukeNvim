@@ -37,7 +37,6 @@ pondnvim.lsp = {
 	aerial = false,
 	semantic_highlighting = false,
 	tag_func = true,
-	omni_func = true,
 	format_expr = true,
 }
 

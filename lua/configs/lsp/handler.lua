@@ -7,19 +7,19 @@ M.on_attach = function(client, bufnr)
 	local caps = client.server_capabilities
 
 	-- Setup omnifunc
-	if pondnvim.lsp.omni_func then
-		-- Enable completion triggered by <C-X><C-O>
-		vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
+	if caps.completionProvider then
+		vim.bo[bufnr].omnifunc = "v:lua.vim.lsp.omnifunc"
 	end
 
 	-- Setup format expr
-	if pondnvim.lsp.format_expr then
-		-- Use LSP as the handler for formatexpr.
-		vim.api.nvim_buf_set_option(bufnr, "formatexpr", "v:lua.vim.lsp.formatexpr()")
+	if caps.documentFormattingProvider then
+		vim.bo[bufnr].formatexpr = "v:lua.vim.lsp.formatexpr()"
 	end
 
 	-- Setup Keymapping LSP & Whick-key
 	require("configs.lsp.keymaps").setup(client, bufnr)
+
+	require("configs.lsp.null-ls.formatters").setup(client, bufnr)
 
 	-- Setup highlighting
 	if pondnvim.lsp.document_highlight then

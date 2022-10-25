@@ -101,6 +101,8 @@ return packer.startup(function(use)
 		end,
 	})
 
+	use({ "RRethy/vim-illuminate" })
+
 	-- [CMP]
 	use({
 		"hrsh7th/nvim-cmp",
