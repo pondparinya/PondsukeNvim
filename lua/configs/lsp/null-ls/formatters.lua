@@ -1,10 +1,20 @@
 local M = {}
+local utils = require("utils.notify")
 local nls_sources = require("null-ls.sources")
 local method = require("null-ls").methods.FORMATTING
 
 local api = vim.api
 
 M.autoformat = true
+
+M.toggle = function()
+  M.autoformat = not M.autoformat
+  if M.autoformat then
+    utils.info("Enabled format on save", "Formatting")
+  else
+    utils.warn("Disabled format on save", "Formatting")
+  end
+end
 
 M.format = function()
   if M.autoformat then
