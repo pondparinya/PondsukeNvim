@@ -33,7 +33,7 @@ end
 pondnvim.lsp = {
 	code_lens_refresh = true,
 	document_highlight = true,
-	nvim_navic = false,
+	nvim_navic = true,
 	aerial = false,
 	semantic_highlighting = false,
 	tag_func = true,

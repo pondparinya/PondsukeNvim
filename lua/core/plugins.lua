@@ -49,7 +49,6 @@ return packer.startup(function(use)
 	--[Which-key]--
 	use({
 		"folke/which-key.nvim",
-		-- commit = "6885b669523ff4238de99a7c653d47b081b5506d",
 		event = "VimEnter",
 		config = function()
 			require("configs.whichkey")
@@ -78,6 +77,8 @@ return packer.startup(function(use)
 			require("configs.lsp.mason")
 		end,
 	})
+
+	-- [LSP]
 	use({
 		"williamboman/mason-lspconfig.nvim",
 		config = function()
@@ -85,6 +86,8 @@ return packer.startup(function(use)
 		end,
 	})
 	use({ "b0o/schemastore.nvim" })
+
+	-- [Null-ls]
 	use({ "jose-elias-alvarez/null-ls.nvim" })
 
 	-- [Snippets]
@@ -102,7 +105,6 @@ return packer.startup(function(use)
 	use({
 		"hrsh7th/nvim-cmp",
 		event = "InsertEnter",
-		-- event = "BufEnter",
 		config = function()
 			require("configs.cmp")
 		end,
@@ -118,7 +120,24 @@ return packer.startup(function(use)
 	use({ "lukas-reineke/cmp-rg", after = "nvim-cmp" })
 	use({ "ray-x/cmp-treesitter", after = "nvim-cmp" })
 
-	----------------------------------------------
+	-- [Navic]
+	use({
+		"SmiteshP/nvim-navic",
+		config = function()
+			require("nvim-navic").setup({})
+		end,
+		module = { "nvim-navic" },
+	})
+
+	-- -- [Aerial]
+	-- use({
+	-- 	"stevearc/aerial.nvim",
+	-- 	config = function()
+	-- 		require("aerial").setup()
+	-- 	end,
+	-- 	module = { "aerial" },
+	-- 	cmd = { "AerialToggle" },
+	-- })
 
 	-- Code documentation
 	-- use({
@@ -130,16 +149,6 @@ return packer.startup(function(use)
 	-- 	module = "neogen",
 	-- 	disable = false,
 	-- })
-
-	--[Aerial]--
-	use({
-		"stevearc/aerial.nvim",
-		config = function()
-			require("aerial").setup()
-		end,
-		module = { "aerial" },
-		cmd = { "AerialToggle" },
-	})
 
 	-- Terminal
 	use({

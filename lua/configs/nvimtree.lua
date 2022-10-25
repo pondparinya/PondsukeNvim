@@ -27,6 +27,7 @@ local configs = {
 		hide_root_folder = true,
 		mappings = {
 			list = {
+				{ key = "o", action = "open_file", mode = "n" },
 				{ key = "s", action = "split", mode = "n" },
 				{ key = "i", action = "vsplit", mode = "n" },
 				{ key = "O", action = "system_open", mode = "n" },
