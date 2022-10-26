@@ -36,28 +36,33 @@ local options = {
 }
 
 local globals = {
-	do_filetype_lua = 1, -- use filetype.lua
-	did_load_filetypes = 0, -- don't use filetype.vim
-	highlighturl_enabled = true, -- highlight URLs by default
-	mapleader = " ", -- set leader key
-	zipPlugin = false, -- disable zip
-	load_black = false, -- disable black
-	loaded_2html_plugin = true, -- disable 2html
-	loaded_getscript = true, -- disable getscript
-	loaded_getscriptPlugin = true, -- disable getscript
-	loaded_gzip = true, -- disable gzip
-	loaded_logipat = true, -- disable logipat
-	loaded_matchit = true, -- disable matchit
-	loaded_netrwFileHandlers = true, -- disable netrw
-	loaded_netrwPlugin = true, -- disable netrw
-	loaded_netrwSettngs = true, -- disable netrw
-	loaded_remote_plugins = true, -- disable remote plugins
-	loaded_tar = true, -- disable tar
-	loaded_tarPlugin = true, -- disable tar
-	loaded_zip = true, -- disable zip
-	loaded_zipPlugin = true, -- disable zip
-	loaded_vimball = true, -- disable vimball
-	loaded_vimballPlugin = true, -- disable vimball
+    highlighturl_enabled = true, -- highlight URLs by default
+    mapleader = " ", -- set leader key
+    zipPlugin = false, -- disable zip
+    load_black = false, -- disable black
+    loaded_2html_plugin = true, -- disable 2html
+    loaded_getscript = true, -- disable getscript
+    loaded_getscriptPlugin = true, -- disable getscript
+    loaded_gzip = true, -- disable gzip
+    loaded_logipat = true, -- disable logipat
+    loaded_matchit = true, -- disable matchit
+    loaded_netrwFileHandlers = true, -- disable netrw
+    loaded_netrwPlugin = true, -- disable netrw
+    loaded_netrwSettngs = true, -- disable netrw
+    loaded_remote_plugins = true, -- disable remote plugins
+    loaded_tar = true, -- disable tar
+    loaded_tarPlugin = true, -- disable tar
+    loaded_zip = true, -- disable zip
+    loaded_zipPlugin = true, -- disable zip
+    loaded_vimball = true, -- disable vimball
+    loaded_vimballPlugin = true, -- disable vimball
+    autoformat_enabled = true, -- enable or disable auto formatting at start (lsp.formatting.format_on_save must be enabled)
+    cmp_enabled = true, -- enable completion at start
+    autopairs_enabled = true, -- enable autopairs at start
+    diagnostics_enabled = true, -- enable diagnostics at start
+    status_diagnostics_enabled = true, -- enable diagnostics in statusline
+    icons_enabled = true, -- disable icons in the UI (disable if no nerd font is available)
+
 }
 for k, v in pairs(options) do
 	vim.opt[k] = v
@@ -67,15 +72,3 @@ for k, v in pairs(globals) do
 	vim.g[k] = v
 end
 
--- vim.opt.shortmess:append "c"
-
-vim.opt.foldmethod = "expr"
-vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
-vim.cmd([[set nofoldenable]])
-
--- vim.cmd("set whichwrap+=<,>,[,],h,l")
--- vim.cmd([[set iskeyword+=-]])
--- vim.cmd [[ set statusline+=%{get(b:,'gitsigns_status','')} ]]
--- vim.cmd [[ set guicursor= ]]
-
--- vim.api.nvim_command('set commentstring=//%s')
