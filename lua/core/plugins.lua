@@ -70,6 +70,16 @@ return packer.startup(function(use)
       require("configs.lsp.mason")
     end,
   })
+  use({
+    "navarasu/onedark.nvim",
+    config = function()
+      require("onedark").setup({
+        style = "deep",
+        toggle_style_key = "<leader>ts",
+      })
+      require("onedark").load()
+    end,
+  })
 
   -- [LSP]
   use({
@@ -124,17 +134,22 @@ return packer.startup(function(use)
     module = { "nvim-navic" },
   })
 
+  use({ "kyazdani42/nvim-web-devicons" })
+
   -- File explorer
-  use({ "nvim-neo-tree/neo-tree.nvim",
+  use({
+    "nvim-neo-tree/neo-tree.nvim",
     branch = "v2.x",
     module = "neo-tree",
     cmd = "Neotree",
     requires = { { "MunifTanjim/nui.nvim", module = "nui" } },
-    setup = function() vim.g.neo_tree_remove_legacy_commands = true end,
-    config = function() require "configs.neo-tree" end,
+    setup = function()
+      vim.g.neo_tree_remove_legacy_commands = true
+    end,
+    config = function()
+      require("configs.neo-tree")
+    end,
   })
-
-
 
   -- -- [Aerial]
   -- use({

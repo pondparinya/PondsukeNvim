@@ -13,4 +13,23 @@ M.diagnostics = {
 	Warning = "",
 }
 
+M.NeoTree = {
+	FolderClosed = "",
+	FolderEmpty = "",
+	DefaultFile = "",
+	Git = "",
+	Diagnostic = "裂",
+	FolderOpen = "",
+	GitAdd = "",
+	GitBranch = "",
+	GitChange = "",
+	GitConflict = "",
+	GitDelete = "",
+	GitIgnored = "◌",
+	GitRenamed = "➜",
+	GitStaged = "✓",
+	GitUnstaged = "✗",
+	GitUntracked = "★",
+}
+
 return M
