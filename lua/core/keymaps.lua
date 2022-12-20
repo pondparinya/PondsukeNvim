@@ -26,16 +26,16 @@ keymap("n", "<C-l>", "<C-w>l", opts)
 
 -- Tab buffers
 keymap("n", "<C-s>", ":w<CR>", opts)
-keymap("n", "q", ":q<CR>", opts)
-keymap("n", "Q", ":q!<CR>", opts)
+-- keymap("n", "q", ":q<CR>", opts)
+-- keymap("n", "Q", ":q!<CR>", opts)
 keymap("n", "<C-\\>", ":BufferLineGroupClose ungrouped<CR>", opts)
 keymap("n", "<C-x>", ":Bdelete<CR>", opts)
 
 -- Navigate buffers
-keymap("n", "<S-l>", ":BufferLineCycleNext<CR>", opts)
-keymap("n", "<S-h>", ":BufferLineCyclePrev<CR>", opts)
-keymap("n", "<S-Left>", ":BufferLineMovePrev<CR>", opts)
-keymap("n", "<S-Right>", ":BufferLineMoveNext<CR>", opts)
+-- keymap("n", "<S-l>", ":BufferLineCycleNext<CR>", opts)
+-- keymap("n", "<S-h>", ":BufferLineCyclePrev<CR>", opts)
+-- keymap("n", "<S-Left>", ":BufferLineMovePrev<CR>", opts)
+-- keymap("n", "<S-Right>", ":BufferLineMoveNext<CR>", opts)
 
 -- Insert mode
 keymap("i", "<C-h>", "<C-o>h", opts)
@@ -59,8 +59,8 @@ keymap("x", "<A-k>", ":move '<-2<CR>gv-gv", opts)
 keymap("x", "<a-j>", ":move '>+1<cr>gv-gv", opts)
 
 -- Visual --
-keymap("v", "<", "<gv", opts)
-keymap("v", ">", ">gv", opts)
+-- keymap("v", "<", "<gv", opts)
+-- keymap("v", ">", ">gv", opts)
 
 -- Formatting
 keymap("n", "<C-f>", ":Format<CR>", opts)

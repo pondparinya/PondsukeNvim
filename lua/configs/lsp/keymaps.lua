@@ -67,6 +67,10 @@ local function keymappings(client, bufnr)
     },
   }
 
+  local keymap_e = {
+    name = "Explorer",
+  }
+
   local o = { buffer = bufnr, prefix = "<leader>" }
   whichkey.register(keymap_l, o)
   -- legendary.bind_whichkey(keymap_l, o, false)
@@ -78,6 +82,11 @@ local function keymappings(client, bufnr)
   o = { buffer = bufnr, prefix = "g" }
   whichkey.register(keymap_g, o)
   -- legendary.bind_whichkey(keymap_g, o, false)
+
+  o = { buffer = bufnr, prefix = "<leader>" }
+  whichkey.register({
+    ["e"] = { "<cmd>Neotree toggle<cr>", "Explorer" },
+  }, o)
 end
 
 function M.setup(client, bufnr)
